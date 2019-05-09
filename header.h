@@ -15,4 +15,5 @@ struct date{
 	char email[32];
 };
 struct date cont;
+
 #endif
