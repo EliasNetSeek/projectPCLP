@@ -3,6 +3,7 @@
 #include "header.h"
 #define BAZA_DATE "baza de date.txt"
 //TEST GITHUB
+
 // TO DO
 // Blocarea inregistrarii peste o persoana deja existenta
 // tabel cu user / pass / email
