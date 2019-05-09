@@ -8,6 +8,7 @@
 // Blocarea inregistrarii peste o persoana deja existenta
 // tabel cu user / pass / email
 // 2 fisere de functii
+// 2 verificari de robot
 
 int main(void){
 	int raspuns;
