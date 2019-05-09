@@ -24,11 +24,22 @@ int main(void){
 	case 2:
 		creare_cont();
 		break;
+	case 3:
+		scanare();
+		break;
 	default:
 		printf("Valoare gresita! Terminare.");
 		break;
 	}
 	fclose(baza_date);
+}
+
+int scanare(){
+	FILE *baza_date;
+	baza_date = fopen(BAZA_DATE, "r");
+	//fscanf(baza_date, "Nume Parola E-mail");
+	printf("sssssss"); //debug
+	return 1;
 }
 
 int logare_cont(){
@@ -97,7 +108,7 @@ int creare_baza_date(){
 		return 0;
 	case 1:
 		baza_date = fopen(BAZA_DATE, "w");
-		fprintf(baza_date, "Nume   Parola    E-mail");
+		fprintf(baza_date, "Nume Parola E-mail");
 		printf("Baza de date a fost creata!");
 		fclose(baza_date);
 		break;
@@ -150,6 +161,7 @@ int resetare_parola(){
 		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		printf("\nIntroduceti email-ul de la contul '%s'", cont.nume);
+		//strlen(cont.email);
 		printf("\n%c%c******@*****.com : ", cont.email[0], cont.email[1]);
 		scanf("%s", email);
 		comparaEmail = strcmp(email,cont.email);
