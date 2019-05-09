@@ -165,7 +165,7 @@ int resetare_parola(){
 		printf("\nIntroduceti email-ul de la contul '%s'", cont.nume);
 		printf("\n%c%c%c", cont.email[0], cont.email[1], cont.email[2]);
 		caracteremail = strlen(cont.email) - 3;
-		for(i=0; i<caracteremail;i++){
+		for(i=0;i<caracteremail;i++){
 			printf("*");
 		}
 		printf(": ");
@@ -175,7 +175,9 @@ int resetare_parola(){
 					printf("Introduceti noua parola: ");
 					scanf("%s", cont.parola);
 					printf("Parola a fost schimbata.");
+					fclose(baza_date);
 					baza_date = fopen(BAZA_DATE, "r+");
+					fprintf(baza_date, "Nume Parola E-mail");
 					fprintf(baza_date, "\n%s %s %s", cont.nume, cont.parola, cont.email);
 					fclose(baza_date);
 					intrebare_logare();
