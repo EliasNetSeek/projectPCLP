@@ -163,8 +163,8 @@ int resetare_parola(){
 		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		printf("\nIntroduceti email-ul de la contul '%s'", cont.nume);
-		printf("\n%c%c", cont.email[0], cont.email[1]);
-		caracteremail = strlen(cont.email) - 2;
+		printf("\n%c%c%c", cont.email[0], cont.email[1], cont.email[2]);
+		caracteremail = strlen(cont.email) - 3;
 		for(i=0; i<caracteremail;i++){
 			printf("*");
 		}
@@ -184,7 +184,7 @@ int resetare_parola(){
 					return 0;
 				}
 	} else {
-		printf("Terminare program.");
+		printf("Terminare program...");
 		return 0;
 	}
 	return 1;
