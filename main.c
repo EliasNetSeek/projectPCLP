@@ -2,11 +2,9 @@
 #include <string.h>
 #include "header.h"
 #define BAZA_DATE "baza de date.txt"
-//TEST GITHUB
 
 // TO DO
 // Blocarea inregistrarii peste o persoana deja existenta
-// tabel cu user / pass / email
 // 2 fisere de functii
 // 2 verificari de robot
 
@@ -48,6 +46,7 @@ int logare_cont(){
 	printf("Esti robot? (1+1): ");
 	scanf("%d", &verificare);
 	if (verificare == 2){
+		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		comparaNume = strcmp(nume,cont.nume);
 		comparaParola = strcmp(parola,cont.parola);
@@ -98,6 +97,7 @@ int creare_baza_date(){
 		return 0;
 	case 1:
 		baza_date = fopen(BAZA_DATE, "w");
+		fprintf(baza_date, "Nume   Parola    E-mail");
 		printf("Baza de date a fost creata!");
 		fclose(baza_date);
 		break;
@@ -111,11 +111,11 @@ int creare_baza_date(){
 int verificare_robot_inregistrare(){
 	int verificare;
 	FILE *baza_date;
-	baza_date = fopen(BAZA_DATE, "r+");
+	baza_date = fopen(BAZA_DATE, "a");
 	printf("Esti robot? (1+1): ");
 	scanf("%d", &verificare);
 		if (verificare == 2){
-			fprintf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
+			fprintf(baza_date, "\n%s %s %s", cont.nume, cont.parola, cont.email);
 			printf("Contul a fost creat cu numele: %s", cont.nume);
 			fclose(baza_date);
 			intrebare_logare();
@@ -147,7 +147,7 @@ int resetare_parola(){
 	printf("\nDoresti sa resetezi parola (1 - da; 0 - nu) ? ");
 	scanf("%d", &raspuns);
 	if (raspuns == 1){
-		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
+		fscanf(baza_date, "\n%s %s %s", cont.nume, cont.parola, cont.email);
 		printf("\nIntroduceti email-ul de la contul '%s'", cont.nume);
 		printf("\n%c%c******@*****.com : ", cont.email[0], cont.email[1]);
 		scanf("%s", email);
@@ -158,7 +158,7 @@ int resetare_parola(){
 					printf("Parola a fost schimbata.");
 					fclose(baza_date);
 					baza_date = fopen(BAZA_DATE, "r+");
-					fprintf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
+					fprintf(baza_date, "\n%s %s %s", cont.nume, cont.parola, cont.email);
 					fclose(baza_date);
 					intrebare_logare();
 				} else {
