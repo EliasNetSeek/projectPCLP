@@ -7,6 +7,7 @@
 // Blocarea inregistrarii peste o persoana deja existenta
 // 2 fisere de functii
 // 2 verificari de robot
+// criterii parola
 
 int main(void){
 	int raspuns;
@@ -151,6 +152,7 @@ int intrebare_logare(){
 
 int resetare_parola(){
 	int raspuns;
+	int caracteremail;
 	char email[32];
 	int comparaEmail;
 	FILE *baza_date;
@@ -161,8 +163,12 @@ int resetare_parola(){
 		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
 		printf("\nIntroduceti email-ul de la contul '%s'", cont.nume);
-		//strlen(cont.email);
-		printf("\n%c%c******@*****.com : ", cont.email[0], cont.email[1]);
+		printf("\n%c%c", cont.email[0], cont.email[1]);
+		caracteremail = strlen(cont.email) - 2;
+		for(i=0; i<caracteremail;i++){
+			printf("*");
+		}
+		printf(": ");
 		scanf("%s", email);
 		comparaEmail = strcmp(email,cont.email);
 				if(comparaEmail == 0){
