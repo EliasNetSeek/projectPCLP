@@ -11,17 +11,17 @@
 // bug baza date
 
 int main(void){
-	int raspuns;
 	FILE *baza_date;
 	baza_date = fopen(BAZA_DATE, "r+");
 	if (!baza_date){
 		creare_baza_date();
 	}
 	if(scanare()==0){
-		printf("baza de date goala");
-		logare_cont();
+		printf("_____________ INREGISTRARE UTILIZATOR _____________\n");
+		creare_cont();
 	} else {
-		printf("este un user");
+		printf("_____________ LOGARE UTILIZATOR _____________\n");
+		logare_cont();
 	}
 
 
@@ -148,7 +148,7 @@ int creare_baza_date(){
 	case 1:
 		baza_date = fopen(BAZA_DATE, "w");
 		fprintf(baza_date, "Nume | Parola | E-mail");
-		printf("Baza de date a fost creata!");
+		printf("Baza de date a fost creata!\n");
 		fclose(baza_date);
 		break;
 	default:
