@@ -16,7 +16,16 @@ int main(void){
 	baza_date = fopen(BAZA_DATE, "r+");
 	if (!baza_date){
 		creare_baza_date();
+	}
+	if(scanare()==0){
+		printf("baza de date goala");
+		logare_cont();
 	} else {
+		printf("este un user");
+	}
+
+
+	/*
 	printf("\nLogare (1) sau inregistrare (2) :");
 	scanf("%d", &raspuns);
 	switch (raspuns){
@@ -32,9 +41,9 @@ int main(void){
 	default:
 		printf("Valoare gresita! Terminare.");
 		break;
-	}
+	} */
 	fclose(baza_date);
-}}
+}
 
 int scanare(){
 	char numarare;
@@ -50,13 +59,15 @@ int scanare(){
 		}
 	}
 	//debug
+	/*
 	printf("%d\n", linii);
 	if (linii==0){
 		printf("baza de date goala");
 	} else {
 		printf("avem un user");
 	}
-	return 1;
+	*/
+	return linii;
 }
 
 int logare_cont(){
