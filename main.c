@@ -91,6 +91,7 @@ int creare_cont(){
 	scanf("%s", cont.nume);
 	printf("Parola: ");
 	scanf("%s", cont.parola);
+	verificare_parola(cont.parola);
 	printf("E-mail:");
 	scanf("%s", cont.email);
 	verificare_robot_inregistrare();
@@ -98,7 +99,10 @@ int creare_cont(){
 }
 
 int verificare_parola(int pass){
+	switch (strlen(pass)){
 
+	}
+	return 1;
 }
 
 int creare_baza_date(){
