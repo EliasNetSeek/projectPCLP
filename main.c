@@ -142,6 +142,7 @@ int creare_baza_date(){
 	default:
 		printf("Valoare gresita");
 		printf("Terminare program...");
+		return 0;
 	}
 	return 1;
 }
