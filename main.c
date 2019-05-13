@@ -23,25 +23,6 @@ int main(void){
 		printf("_____________ LOGARE UTILIZATOR _____________\n");
 		logare_cont();
 	}
-
-
-	/*
-	printf("\nLogare (1) sau inregistrare (2) :");
-	scanf("%d", &raspuns);
-	switch (raspuns){
-	case 1:
-		logare_cont();
-		break;
-	case 2:
-		creare_cont();
-		break;
-	case 3:
-		scanare();
-		break;
-	default:
-		printf("Valoare gresita! Terminare.");
-		break;
-	} */
 	fclose(baza_date);
 }
 
@@ -50,23 +31,11 @@ int scanare(){
 	int linii=0;
 	FILE *baza_date;
 	baza_date = fopen(BAZA_DATE, "r");
-/*	if(strcmp(cont.nume, "\0") == 0){
-		printf("ssss");
-	} */
 	while((numarare=fgetc(baza_date))!=EOF){
 		if(numarare=='\n'){
 			linii++;
 		}
 	}
-	//debug
-	/*
-	printf("%d\n", linii);
-	if (linii==0){
-		printf("baza de date goala");
-	} else {
-		printf("avem un user");
-	}
-	*/
 	return linii;
 }
 
@@ -93,8 +62,6 @@ int logare_cont(){
 			if (comparaParola == 0){
 				printf("\nContul exista"); //debug
 				printf("\nBun venit, %s", cont.nume);
-				//int v = strlen(cont.parola);
-				//printf("%d", v);
 			} else {
 				printf("\nParola pentru contul '%s' este gresita.", cont.nume);
 				fclose(baza_date);
