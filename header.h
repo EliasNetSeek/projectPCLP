@@ -8,6 +8,7 @@ int verificare_robot_inregistrare();
 int intrebare_logare();
 int resetare_parola();
 int scanare();
+int verificare_parola();
 int baza_date,i;
 int n = 0;
 struct date{
