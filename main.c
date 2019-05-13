@@ -8,6 +8,7 @@
 // 2 fisere de functii
 // 2 verificari de robot
 // criterii parola
+// bug baza date
 
 int main(void){
 	int raspuns;
@@ -36,10 +37,24 @@ int main(void){
 }
 
 int scanare(){
+	char numarare;
+	int linii=0;
 	FILE *baza_date;
 	baza_date = fopen(BAZA_DATE, "r");
-	//fscanf(baza_date, "Nume Parola E-mail");
-	printf("sssssss"); //debug
+/*	if(strcmp(cont.nume, "\0") == 0){
+		printf("ssss");
+	} */
+	while((numarare=fgetc(baza_date))!=EOF){
+		if(numarare=='\n'){
+			linii++;
+		}
+	}
+	printf("%d", linii);
+	if (linii==0){
+		printf("baza de date goala");
+	} else {
+		printf("avem un user");
+	}
 	return 1;
 }
 
@@ -91,7 +106,7 @@ int creare_cont(){
 	scanf("%s", cont.nume);
 	printf("Parola: ");
 	scanf("%s", cont.parola);
-	verificare_parola(cont.parola);
+//	verificare_parola(cont.parola);
 	printf("E-mail:");
 	scanf("%s", cont.email);
 	verificare_robot_inregistrare();
@@ -126,7 +141,7 @@ int creare_baza_date(){
 		break;
 	default:
 		printf("Valoare gresita");
-		break;
+		printf("Terminare program...");
 	}
 	return 1;
 }
