@@ -16,7 +16,7 @@ int main(void){
 	baza_date = fopen(BAZA_DATE, "r+");
 	if (!baza_date){
 		creare_baza_date();
-	}
+	} else {
 	printf("\nLogare (1) sau inregistrare (2) :");
 	scanf("%d", &raspuns);
 	switch (raspuns){
@@ -34,7 +34,7 @@ int main(void){
 		break;
 	}
 	fclose(baza_date);
-}
+}}
 
 int scanare(){
 	char numarare;
@@ -49,7 +49,8 @@ int scanare(){
 			linii++;
 		}
 	}
-	printf("%d", linii);
+	//debug
+	printf("%d\n", linii);
 	if (linii==0){
 		printf("baza de date goala");
 	} else {
@@ -125,10 +126,10 @@ int verificare_parola(char pass){
 */
 int creare_baza_date(){
 	FILE *baza_date;
-	int x=0;
+	int raspuns=0;
 	printf("Baza de date inexistenta\nDoresti sa initializezi una? (1 - da; 0 - nu): ");
-	scanf("%d", &x);
-	switch (x) {
+	scanf("%d", &raspuns);
+	switch (raspuns) {
 	case 0:
 		printf("Program terminat! (baza de date inexistenta)");
 		break;
