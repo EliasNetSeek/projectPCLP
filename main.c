@@ -98,9 +98,12 @@ int creare_cont(){
 	return 1;
 }
 
-int verificare_parola(int pass){
-	switch (strlen(pass)){
-
+int verificare_parola(char pass){
+	if(strlen(pass)<6){
+		printf("Inregistrarea necesita o parola de minim 6 caractere");
+		printf("Parola: ");
+		scanf("%s", cont.parola);
+		return cont.parola;
 	}
 	return 1;
 }
