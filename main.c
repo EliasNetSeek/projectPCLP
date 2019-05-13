@@ -97,6 +97,10 @@ int creare_cont(){
 	return 1;
 }
 
+int verificare_parola(int pass){
+
+}
+
 int creare_baza_date(){
 	FILE *baza_date;
 	int x=0;
