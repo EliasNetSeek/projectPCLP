@@ -5,7 +5,6 @@
 
 // TO DO
 // 2 fisere de functii
-// 2 verificari de robot
 // bug baza date
 
 int main(void){
@@ -51,6 +50,12 @@ int logare_cont(){
 	scanf("%s", parola);
 	printf("Esti robot? (1+1): ");
 	scanf("%d", &verificare);
+	if (!(verificare==2)){
+		for(int i=0;i<1;i++){
+			printf("Esti robot? (1+1): ");
+			scanf("%d", &verificare);
+		}
+	}
 	if (verificare == 2){
 		fscanf(baza_date, "%s | %s | %s", cont.nume, cont.parola, cont.email);
 		fscanf(baza_date, "%s | %s | %s", cont.nume, cont.parola, cont.email);
@@ -124,6 +129,12 @@ int verificare_robot_inregistrare(){
 	baza_date = fopen(BAZA_DATE, "a");
 	printf("Esti robot? (1+1): ");
 	scanf("%d", &verificare);
+	if (!(verificare==2)){
+		for(int i=0;i<1;i++){
+			printf("Esti robot? (1+1): ");
+			scanf("%d", &verificare);
+		}
+	}
 	if (verificare == 2){
 		fprintf(baza_date, "\n%s | %s | %s", cont.nume, cont.parola, cont.email);
 		printf("Contul a fost creat cu numele: %s", cont.nume);
