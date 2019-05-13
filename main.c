@@ -118,23 +118,28 @@ int creare_cont(){
 	scanf("%s", cont.nume);
 	printf("Parola: ");
 	scanf("%s", cont.parola);
-//	verificare_parola(cont.parola);
+	if(strlen(cont.parola)<6){
+		printf("dd");
+	}
 	printf("E-mail:");
 	scanf("%s", cont.email);
 	verificare_robot_inregistrare();
 	return 1;
 }
+
 /*
-int verificare_parola(char pass){
-	if(strlen(pass)<6){
+int verificare_parola(pass){
+	int x = 6;
+	int y = strlen(pass);
+	if(y<x){
 		printf("Inregistrarea necesita o parola de minim 6 caractere");
 		printf("Parola: ");
 		scanf("%s", cont.parola);
-		return cont.parola;
 	}
 	return 1;
 }
 */
+
 int creare_baza_date(){
 	FILE *baza_date;
 	int raspuns=0;
