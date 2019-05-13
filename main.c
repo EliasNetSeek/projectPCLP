@@ -140,8 +140,8 @@ int creare_baza_date(){
 		fclose(baza_date);
 		break;
 	default:
-		printf("Valoare gresita");
-		printf("Terminare program...");
+		printf("Valoare gresita\n");
+		printf("Terminare program...\n");
 		return 0;
 	}
 	return 1;
