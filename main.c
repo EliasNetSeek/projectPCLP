@@ -4,10 +4,8 @@
 #define BAZA_DATE "baza de date.txt"
 
 // TO DO
-// Blocarea inregistrarii peste o persoana deja existenta
 // 2 fisere de functii
 // 2 verificari de robot
-// criterii parola
 // bug baza date
 
 int main(void){
@@ -126,14 +124,14 @@ int verificare_robot_inregistrare(){
 	baza_date = fopen(BAZA_DATE, "a");
 	printf("Esti robot? (1+1): ");
 	scanf("%d", &verificare);
-		if (verificare == 2){
-			fprintf(baza_date, "\n%s | %s | %s", cont.nume, cont.parola, cont.email);
-			printf("Contul a fost creat cu numele: %s", cont.nume);
-			fclose(baza_date);
-			intrebare_logare();
-		} else {
-			printf("Verificarea a esuat.");
-			return 0;
+	if (verificare == 2){
+		fprintf(baza_date, "\n%s | %s | %s", cont.nume, cont.parola, cont.email);
+		printf("Contul a fost creat cu numele: %s", cont.nume);
+		fclose(baza_date);
+		intrebare_logare();
+	} else {
+		printf("Verificarea a esuat.");
+		return 0;
 	}
 	return 1;
 }
