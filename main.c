@@ -97,7 +97,7 @@ int creare_cont(){
 	verificare_robot_inregistrare();
 	return 1;
 }
-
+/*
 int verificare_parola(char pass){
 	if(strlen(pass)<6){
 		printf("Inregistrarea necesita o parola de minim 6 caractere");
@@ -107,7 +107,7 @@ int verificare_parola(char pass){
 	}
 	return 1;
 }
-
+*/
 int creare_baza_date(){
 	FILE *baza_date;
 	int x=0;
