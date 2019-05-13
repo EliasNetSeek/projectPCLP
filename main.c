@@ -58,8 +58,8 @@ int logare_cont(){
 	printf("Esti robot? (1+1): ");
 	scanf("%d", &verificare);
 	if (verificare == 2){
-		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
-		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
+		fscanf(baza_date, "%s | %s | %s", cont.nume, cont.parola, cont.email);
+		fscanf(baza_date, "%s | %s | %s", cont.nume, cont.parola, cont.email);
 		comparaNume = strcmp(nume,cont.nume);
 		comparaParola = strcmp(parola,cont.parola);
 		if(comparaNume == 0){
@@ -109,7 +109,7 @@ int creare_baza_date(){
 		return 0;
 	case 1:
 		baza_date = fopen(BAZA_DATE, "w");
-		fprintf(baza_date, "Nume Parola E-mail");
+		fprintf(baza_date, "Nume | Parola | E-mail");
 		printf("Baza de date a fost creata!");
 		fclose(baza_date);
 		break;
@@ -127,7 +127,7 @@ int verificare_robot_inregistrare(){
 	printf("Esti robot? (1+1): ");
 	scanf("%d", &verificare);
 		if (verificare == 2){
-			fprintf(baza_date, "\n%s %s %s", cont.nume, cont.parola, cont.email);
+			fprintf(baza_date, "\n%s | %s | %s", cont.nume, cont.parola, cont.email);
 			printf("Contul a fost creat cu numele: %s", cont.nume);
 			fclose(baza_date);
 			intrebare_logare();
@@ -140,7 +140,7 @@ int verificare_robot_inregistrare(){
 
 int intrebare_logare(){
 	int rasp;
-	printf("\nDoresti sa te autentifici (1 - da; 0 - nu) ?");
+	printf("\nDoresti sa te autentifici (1 - da; 0 - nu) ? :");
 	scanf("%d", &rasp);
 	if(rasp == 1){
 	logare_cont();
@@ -160,8 +160,8 @@ int resetare_parola(){
 	printf("\nDoresti sa resetezi parola (1 - da; 0 - nu) ? ");
 	scanf("%d", &raspuns);
 	if (raspuns == 1){
-		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
-		fscanf(baza_date, "%s %s %s", cont.nume, cont.parola, cont.email);
+		fscanf(baza_date, "%s | %s | %s", cont.nume, cont.parola, cont.email);
+		fscanf(baza_date, "%s | %s | %s", cont.nume, cont.parola, cont.email);
 		printf("\nIntroduceti email-ul de la contul '%s'", cont.nume);
 		printf("\n%c%c%c", cont.email[0], cont.email[1], cont.email[2]);
 		caracteremail = strlen(cont.email) - 3;
@@ -177,8 +177,8 @@ int resetare_parola(){
 					printf("Parola a fost schimbata.");
 					fclose(baza_date);
 					baza_date = fopen(BAZA_DATE, "r+");
-					fprintf(baza_date, "Nume Parola E-mail");
-					fprintf(baza_date, "\n%s %s %s", cont.nume, cont.parola, cont.email);
+					fprintf(baza_date, "Nume | Parola | E-mail");
+					fprintf(baza_date, "\n%s | %s | %s", cont.nume, cont.parola, cont.email);
 					fclose(baza_date);
 					intrebare_logare();
 				} else {
