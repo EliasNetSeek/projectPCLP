@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "header.h"
-#define BAZA_DATE "baza de date.txt"
+#define BAZA_DATE "utilizatori.db"
 
 // TO DO
 // 2 fisere de functii
