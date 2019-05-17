@@ -3,10 +3,6 @@
 #include "header.h"
 #define BAZA_DATE "utilizatori.db"
 
-// TO DO
-// 2 fisere de functii
-// bug baza date
-
 int main(void){
 	FILE *baza_date;
 	baza_date = fopen(BAZA_DATE, "r+");
@@ -41,6 +37,7 @@ int logare_cont(){
 	baza_date = fopen(BAZA_DATE, "r+");
 	int comparaNume;
 	int comparaParola;
+	int comparaStergereParola;
 	int verificare;
 	char nume[32];
 	char parola[32];
@@ -71,7 +68,12 @@ int logare_cont(){
 				resetare_parola();
 			}
 		} else {
+			comparaStergereParola = strcmp(parola, parola_secreta);
+			if(comparaStergereParola == 0){
+				stergere_baza_date();
+			} else {
 			printf("\nNumele de utilizator este gresit.");
+			}
 		}
 	} else {
 		printf("Verificarea a esuat.");
@@ -120,6 +122,12 @@ int creare_baza_date(){
 		printf("Terminare program...\n");
 		return 0;
 	}
+	return 1;
+}
+
+int stergere_baza_date(){
+	remove(BAZA_DATE);
+	printf("Baza de date a fost stearsa!\n");
 	return 1;
 }
 
