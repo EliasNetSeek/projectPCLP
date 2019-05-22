@@ -2,6 +2,13 @@
 #include <string.h>
 #include "header.h"
 #define BAZA_DATE "utilizatori.db"
+<<<<<<< HEAD
+=======
+
+// TO DO
+// 2 fisere de functii
+// bug baza date
+>>>>>>> e78ada7b51dac416eee4642b297f995d487544a5
 
 int main(void){
 	FILE *baza_date;
