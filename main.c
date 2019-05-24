@@ -99,8 +99,6 @@ int logare_cont(){
 }
 
 int creare_cont(){
-	FILE *baza_date;
-	baza_date = fopen(BAZA_DATE, "r+");
 	i=0;
 	printf("Nume: ");
 	fflush(stdout);
